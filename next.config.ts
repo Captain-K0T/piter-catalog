@@ -1,7 +1,7 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Конфигурация для изображений больше не нужна, 
+  // так как они будут загружаться локально из папки /public
 };
 
-export default nextConfig;
+module.exports = nextConfig;
