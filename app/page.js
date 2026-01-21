@@ -7,6 +7,7 @@ import CategoryFilter from '@/app/components/CategoryFilter';
 import RestaurantCard from '@/app/components/RestaurantCard';
 
 const ITEMS_PER_PAGE = 10;
+const BASE_PATH = '/piter-catalog-tma';
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -113,7 +114,7 @@ export default function Home() {
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-full shrink-0 bg-[#EC5E54] overflow-hidden">
               <img
-                src="/vp-logo.jpg"
+                src={`${BASE_PATH}/vp-logo.jpg`}
                 alt="Вкусный Питер"
                 className="w-full h-full object-cover"
               />

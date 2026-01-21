@@ -1,6 +1,9 @@
 // app/data/restaurants.js
 import { parseCSV, csvToObjects } from '@/app/utils/csvParser';
 
+// Базовый путь для GitHub Pages
+const BASE_PATH = '/piter-catalog-tma';
+
 // Вспомогательная функция для извлечения текста из HTML
 const getTextSummary = (html) => {
   if (!html) return '';
@@ -12,7 +15,7 @@ const getTextSummary = (html) => {
 // Функция для загрузки и парсинга CSV
 export async function loadRestaurants(limit = null) {
   try {
-    const response = await fetch('/database_enriched.csv');
+    const response = await fetch(`${BASE_PATH}/database_enriched.csv`);
     const csvText = await response.text();
     const csvLines = parseCSV(csvText);
     const csvData = csvToObjects(csvLines);
@@ -24,8 +27,8 @@ export async function loadRestaurants(limit = null) {
       for (let i = 1; i <= 10; i++) {
         const photoPath = row[`photo_path_${i}`];
         if (photoPath && photoPath.trim() !== '') {
-          // Добавляем префикс /posts/ к пути фотографии
-          photo_path.push(`/posts/${photoPath}`);
+          // Добавляем префикс с basePath к пути фотографии
+          photo_path.push(`${BASE_PATH}/posts/${photoPath}`);
         }
       }
 

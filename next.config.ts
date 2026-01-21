@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Конфигурация для изображений больше не нужна, 
-  // так как они будут загружаться локально из папки /public
+  output: 'export',
+  basePath: '/piter-catalog-tma',
+  images: {
+    unoptimized: true,
+  },
 };
 
 module.exports = nextConfig;
